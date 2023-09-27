@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2dwyqttsdpko"]
+
+[ext_resource type="PackedScene" uid="uid://dg7rm3quufvc2" path="res://Cenas/FGBG/background.tscn" id="1_2nabn"]
+[ext_resource type="PackedScene" uid="uid://b3vg0aw25fnix" path="res://Cenas/FGBG/fore_ground.tscn" id="2_kbvad"]
+[ext_resource type="PackedScene" uid="uid://criieshdao11k" path="res://Cenas/Jogador/player.tscn" id="3_80ado"]
+
+[node name="Jogo" type="Node2D"]
+
+[node name="background" parent="." instance=ExtResource("1_2nabn")]
+position = Vector2(-2, 0)
+scale = Vector2(0.888256, 0.888256)
+
+[node name="ForeGround" parent="." instance=ExtResource("2_kbvad")]
+position = Vector2(-1, 503)
+scale = Vector2(1.05296, 1.07317)
+
+[node name="Player" parent="." instance=ExtResource("3_80ado")]
+position = Vector2(155, 462)

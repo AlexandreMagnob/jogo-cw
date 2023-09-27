@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Cenas/FGBG/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/Kanit-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Player/Cyborg_run/Cyborg_run1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Player/Punk_run/Punk_run1.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/SelectPlayer.gd" type="Script" id=6]
+[ext_resource path="res://Cenas/Spawners/Otimizador.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 33
+extra_spacing_top = 20
+extra_spacing_bottom = 20
+font_data = ExtResource( 2 )
+
+[node name="SelectPlayer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 426.0, 452.0 ]
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+position = Vector2( 721, -119 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
+text = "ESCOLHA SEU PERSONAGEM"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 95.0
+margin_right = 500.0
+margin_bottom = 393.0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 1.0
+margin_right = 200.0
+margin_bottom = 298.0
+rect_pivot_offset = Vector2( -529, 336 )
+custom_constants/margin_right = 80
+custom_constants/margin_top = 250
+custom_constants/margin_left = 80
+
+[node name="BikerButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+margin_left = 80.0
+margin_top = 250.0
+margin_right = 119.0
+margin_bottom = 298.0
+rect_pivot_offset = Vector2( -701, -53 )
+texture_normal = ExtResource( 3 )
+
+[node name="BikerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer/BikerButton2"]
+margin_left = 5.0
+margin_top = -34.0
+margin_right = 44.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( -701, -53 )
+texture_normal = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/MarginContainer/BikerButton2"]
+position = Vector2( 26, -7.00002 )
+scale = Vector2( 3.67308, 3.67308 )
+texture = ExtResource( 3 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 350.0
+margin_bottom = 298.0
+custom_constants/margin_right = 80
+custom_constants/margin_top = 250
+custom_constants/margin_left = 30
+
+[node name="CyborgButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+margin_left = 30.0
+margin_top = 250.0
+margin_right = 66.0
+margin_bottom = 298.0
+rect_pivot_offset = Vector2( -667, 24 )
+texture_normal = ExtResource( 4 )
+
+[node name="CyborgButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer2/CyborgButton"]
+margin_top = -35.0
+margin_right = 36.0
+margin_bottom = 14.0
+texture_normal = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/MarginContainer2/CyborgButton"]
+position = Vector2( 18, -11 )
+scale = Vector2( 3.86111, 3.86111 )
+texture = ExtResource( 4 )
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 354.0
+margin_right = 499.0
+margin_bottom = 298.0
+custom_constants/margin_right = 80
+custom_constants/margin_top = 250
+custom_constants/margin_left = 30
+
+[node name="PunkButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+margin_left = 30.0
+margin_top = 250.0
+margin_right = 65.0
+margin_bottom = 298.0
+texture_normal = ExtResource( 5 )
+
+[node name="PunkButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer3/PunkButton"]
+margin_left = -2.0
+margin_top = -32.0
+margin_right = 33.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/MarginContainer3/PunkButton"]
+position = Vector2( 16, -5.99998 )
+scale = Vector2( 3.63571, 3.63572 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 341.0
+margin_top = 395.0
+margin_right = 447.0
+margin_bottom = 486.0
+rect_pivot_offset = Vector2( -224, 67 )
+custom_fonts/font = SubResource( 1 )
+text = "PUNK"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 39.0
+margin_top = 395.0
+margin_right = 145.0
+margin_bottom = 486.0
+rect_pivot_offset = Vector2( 179, 95 )
+custom_fonts/font = SubResource( 1 )
+text = "BIKER"
+align = 1
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 174.0
+margin_top = 395.0
+margin_right = 308.0
+margin_bottom = 486.0
+rect_pivot_offset = Vector2( 179, 95 )
+custom_fonts/font = SubResource( 1 )
+text = "CYBORG"
+align = 1
+
+[node name="Otimizador" parent="." instance=ExtResource( 7 )]
+position = Vector2( 479, 408 )
+scale = Vector2( 87.45, 59.9 )
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/BikerButton2" to="." method="_on_BikerButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/BikerButton2/BikerButton" to="." method="_on_BikerButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer2/CyborgButton" to="." method="_on_CyborgButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer2/CyborgButton/CyborgButton" to="." method="_on_CyborgButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/PunkButton" to="." method="_on_PunkButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/PunkButton/PunkButton2" to="." method="_on_PunkButton_pressed"]

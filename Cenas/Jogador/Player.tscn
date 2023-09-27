@@ -1,0 +1,70 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Player/Biker_jump/Biker_jump4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run6.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Player/Biker_jump/Biker_jump2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Player/Biker_jump/Biker_jump1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Player/Biker_jump/Biker_jump3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run4.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Player/Biker_run/Biker_run3.png" type="Texture" id=11]
+[ext_resource path="res://Cenas/Spawners/Otimizador.tscn" type="PackedScene" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Run",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.3125, 38.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 18.375, 2.125 )
+
+[node name="BikerPlayer" type="KinematicBody2D"]
+position = Vector2( 48, 686 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 757.0 ],
+"_edit_vertical_guides_": [ 41.0 ]
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 13, 139 )
+scale = Vector2( 2.53944, 2.53944 )
+frames = SubResource( 1 )
+animation = "Run"
+frame = 3
+playing = true
+offset = Vector2( -11.7305, -50.9351 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7.3125, 31 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -7.375, 67.875 )
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Otimizador" parent="." instance=ExtResource( 12 )]
+position = Vector2( -16, 28 )
+scale = Vector2( 3.55, 4.95 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

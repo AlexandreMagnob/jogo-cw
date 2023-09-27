@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cenas/efeitos/Backgrounds/ScrollingBackground.gdshader" type="Shader" id=1]
+[ext_resource path="res://Assets/Backgrounds/Background1.png" type="Texture" id=2]
+[ext_resource path="res://Cenas/efeitos/Backgrounds/ScrollingBackground.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/scroll_speed = 0.0
+
+[node name="Background" type="Node2D"]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource( 3 )]
+material = SubResource( 1 )
+margin_left = -1022.0
+margin_top = -2.0
+margin_right = 939.0
+margin_bottom = 1078.0
+rect_scale = Vector2( 0.792787, 0.943059 )
+texture = ExtResource( 2 )

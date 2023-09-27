@@ -1,0 +1,10 @@
+Sprite2D
+Timer
+CollisionShape2D
+Area2D
+CharacterBody2D
+Node
+StaticBody2D
+AnimationPlayer
+AnimatedSprite2D
+TextureRect

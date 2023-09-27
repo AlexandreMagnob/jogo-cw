@@ -1,0 +1,93 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Scripts/Vida.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_29.png" type="Texture" id=2]
+[ext_resource path="res://Cenas/efeitos/Pickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_30.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_19.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_18.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_21.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_23.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_24.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_17.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_20.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_22.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_25.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_26.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_27.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_28.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_5.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_6.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_11.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_12.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_9.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_13.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_14.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_15.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_16.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_1.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_7.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_8.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_3.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_4.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Sprites/Itens/Gold/Gold_10.png" type="Texture" id=32]
+[ext_resource path="res://Cenas/Spawners/Otimizador.tscn" type="PackedScene" id=33]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 23 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "moeda 1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "moeda coração ",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "moeda estrela",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.0333
+
+[node name="Vida" type="Node2D"]
+position = Vector2( 0, -5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 2.50535, 40.4902 )
+scale = Vector2( 0.0550432, 0.0550432 )
+frames = SubResource( 1 )
+animation = "moeda estrela"
+frame = 7
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Pickup" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+position = Vector2( 2, 41 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, 43 )
+
+[node name="Otimizador" parent="." instance=ExtResource( 33 )]
+position = Vector2( 2.75, 40 )
+scale = Vector2( 1.775, 1.7 )
+
+[connection signal="body_entered" from="Pickup" to="." method="_on_Pickup_body_entered"]

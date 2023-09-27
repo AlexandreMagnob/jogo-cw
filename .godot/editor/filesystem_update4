@@ -1,0 +1,13 @@
+res://Cenas/jogo.tscn
+res://Cenas/efeitos/Backgrounds/Shader.gdshader
+res://Cenas/Jogador/player.tscn
+res://Cenas/FGBG/background.tscn
+res://Cenas/FGBG/fore_ground.tscn
+res://Scripts/player.gd
+res://Cenas/Spawners/spawner.tscn
+res://Scripts/spawner.gd
+res://Scripts/rochas.gd
+res://Scripts/vida.gd
+res://Cenas/obstaculos/Rochas.tscn
+res://Cenas/itens/vida.tscn
+res://Scripts/ScrollMovement.gd
